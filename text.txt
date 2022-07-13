@@ -1,0 +1,9 @@
+BOUTIQUE:
+    -Affichage des produits   -> getProduct()
+    -Affichage des catégories -> getCategory()
+
+Customers(clients):
+    -Inscription -> createCustomers()
+    -Connexion   -> authentifier()
+    -Achat       -> createOrders()
+    -Mettre à jour ses informations personnels -> updateInfosCustomers()
