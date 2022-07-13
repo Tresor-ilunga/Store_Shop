@@ -4,7 +4,8 @@ $url=  trim( $_SERVER['PATH_INFO'], '/');
 $url = explode('/',$url);
 $route = array(
     "accueil",
-    "contact"
+    "contact",
+    "produit"
 );
 
 //print_r($url);
