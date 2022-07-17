@@ -5,7 +5,8 @@ $url = explode('/',$url);
 $route = array(
     "accueil",
     "contact",
-    "produit"
+    "produit",
+    "category"
 );
 
 //print_r($url);

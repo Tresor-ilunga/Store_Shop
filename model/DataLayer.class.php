@@ -127,6 +127,12 @@ class DataLayer
         }
     }
 
+    /**
+     * Fonction qui permet de mettre a jour les informations d'un utilisateur en base des données
+     * @param newInfos Tableau associatif 
+     * @return true si en cas de succès de la mise à jour reussie, FALSE si non
+     * @return null s'il y a une exception déclenchée
+     */
     public function updateInfosCustomers($newInfos){
 
         $sql = "UPDATE `customers` SET";
@@ -151,8 +157,13 @@ class DataLayer
         }
     }
 
+    /**
+     * Fonction qui sert à récupérer les catégories des produits
+     *
+     * @return array tableau contenant les catégories
+     * @return null s'il y a une exception déclenchée
+     */
     public function getCategory(){
-
         $sql = "SELECT * FROM category";
 
         try
@@ -171,24 +182,34 @@ class DataLayer
         }
     }
 
-    public function getProduct($limit = null){
-
+    /**
+     * Fonction qui sert à récuperer les produits au sein de la base des données
+     *
+     * @param limit paramètre optionnel, permet de definir les nombres à récuperer
+     * @return array tableau contenant les produits, en cas de success FALSE si non
+     * @return null s'il y a une exception déclenchée
+     */
+    public function getProduct($limit = null, $catgeory = null){
         $sql = "SELECT * FROM product ";
-
+        $sql = "SELECT * FROM product ";
         try
         {
+            if(!is_null($catgeory)){
+                $sql .= ' WHERE category = '.$catgeory;
+            }
             if(!is_null($limit)){
-                $sql .= 'LIMIT '.$limit;
+                $sql.= ' LIMIT '.$limit;
             }
             $result = $this->connexion->prepare($sql);
             $var = $result->execute();
             $data = $result->fetchAll(PDO::FETCH_ASSOC);
             if($data){
                 return $data;
-            }else{
+            }
+            else{
                 return false;
             }
-        }catch (PDOException $e)
+        }catch(PDOException $e)
         {
             return null;
         }

@@ -10,7 +10,7 @@ const SEPARATOR = DIRECTORY_SEPARATOR;
 const CONFIG =  ROOT. SEPARATOR  . "config";
 const VIEWS  =  ROOT . SEPARATOR . "views";
 const MODEL  =  ROOT . SEPARATOR . "model";
-define("BASE_URL", dirname($_SERVER['REQUEST_URI']));
+define("BASE_URL", dirname(dirname($_SERVER['SCRIPT_NAME'])));
 
 /**
  * Import du model
@@ -20,3 +20,6 @@ require_once MODEL.SEPARATOR."DataLayer.class.php";
 
 
 $model = new DataLayer();
+$category = $model->getCategory();
+
+
