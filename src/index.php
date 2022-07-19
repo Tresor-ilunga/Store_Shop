@@ -6,7 +6,8 @@ $route = array(
     "accueil",
     "contact",
     "produit",
-    "category"
+    "category",
+    "details"
 );
 
 //print_r($url);

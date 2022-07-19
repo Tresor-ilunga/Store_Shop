@@ -189,11 +189,13 @@ class DataLayer
      * @return array tableau contenant les produits, en cas de success FALSE si non
      * @return null s'il y a une exception déclenchée
      */
-    public function getProduct($limit = null, $catgeory = null){
-        $sql = "SELECT * FROM product ";
+    public function getProduct($limit = null, $catgeory = null, $id = null){
         $sql = "SELECT * FROM product ";
         try
         {
+            if(!is_null($id)){
+                $sql .= ' WHERE id = '.$id;
+            }
             if(!is_null($catgeory)){
                 $sql .= ' WHERE category = '.$catgeory;
             }
