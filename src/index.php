@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "include.php";
 $url=  trim( $_SERVER['PATH_INFO'], '/');
 $url = explode('/',$url);
@@ -7,7 +8,9 @@ $route = array(
     "contact",
     "produit",
     "category",
-    "details"
+    "details",
+    "panier",
+    "supprimer"
 );
 
 //print_r($url);

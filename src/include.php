@@ -11,6 +11,7 @@ const CONFIG =  ROOT. SEPARATOR  . "config";
 const VIEWS  =  ROOT . SEPARATOR . "views";
 const MODEL  =  ROOT . SEPARATOR . "model";
 define("BASE_URL", dirname(dirname($_SERVER['SCRIPT_NAME'])));
+define("TVA", 16);
 
 /**
  * Import du model

@@ -50,9 +50,12 @@
                             </li>
                         </li>
                     </ul>
+                    <a href="<?php echo BASE_URL.SEPARATOR."panier"?>" class="btn btn-outline-success my-2 my-sm-0 me-2">Panier</a>
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <input class="form-control me-2" type="email" placeholder="Votre email" aria-label="Search">
+                        <input class="form-control me-2" type="password" placeholder="Votre mot de passe" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0 me-2" type="submit">Connexion</button>
+                        <button class="btn btn-outline-success my-2 my-sm-0 me-2" type="submit">Inscription</button>
                     </form>
                 </div>
         </div>
