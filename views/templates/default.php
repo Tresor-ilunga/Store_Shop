@@ -39,10 +39,8 @@
                                 <?php
                                     foreach($category as $key => $value){
                                         echo '<li><a class="dropdown-item" href="'.BASE_URL.SEPARATOR."category".SEPARATOR.$value['id'].'">'.$value['name'].'</a></li>';
-                                    }                                ?>
-                                <!-- <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                                    }                 
+                                ?>
                             </ul>
                             
                             <li class="nav-item">
