@@ -49,12 +49,18 @@
                         </li>
                     </ul>
                     <a href="<?php echo BASE_URL.SEPARATOR."panier"?>" class="btn btn-outline-success my-2 my-sm-0 me-2">Panier</a>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="email" placeholder="Votre email" aria-label="Search">
-                        <input class="form-control me-2" type="password" placeholder="Votre mot de passe" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0 me-2" type="submit">Connexion</button>
-                        <button class="btn btn-outline-success my-2 my-sm-0 me-2" type="submit">Inscription</button>
-                    </form>
+                    <?php if(!isset($_SESSION["customer"])): ?>
+                        <form class="d-flex" action="actionConnexion" method="POST">
+                            <input class="form-control me-2" type="email" name="email" placeholder="Votre email" required>
+                            <input class="form-control me-2" type="password" name="password" placeholder="Votre mot de passe" required>
+                            <button class="btn btn-outline-success my-2 my-sm-0 me-2" type="submit">Connexion</button>
+                        </form>
+                        <a href="<?php echo BASE_URL.SEPARATOR."accueil"?>" class="btn btn-outline-success my-2 my-sm-0 me-2" type="submit">Inscription</a>
+                    <?php endif ?>
+                    <?php if(isset($_SESSION["customer"])): ?>
+                        <a href="<?php echo BASE_URL.SEPARATOR."profil"?>" class="btn btn-outline-success my-2 my-sm-0 me-2" type="submit">Profil</a>
+                        <a href="<?php echo BASE_URL.SEPARATOR."deconnexion"?>" class="btn btn-outline-success my-2 my-sm-0 me-2" type="submit">Deconnexion</a>
+                    <?php endif ?>
                 </div>
         </div>
     </nav>

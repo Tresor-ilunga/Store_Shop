@@ -2,12 +2,100 @@
 
 function displayAccueil()
 {
-    return "<h1>Bienvenu sur la page d'accueil</h1>";
+    $result = '<h1>Bienvenu sur la page d\'accueil</h1>';
+    $result .= '<div class="bg-white shadow-sm rounded p-6">
+    <form action="actionInscription" method="POST">
+        <div class="mb-4">
+            <h2 class="h4">INSCRIPTION</h2>
+        <div>
+
+        <!-- Input -->
+        <div class="mb-3">
+            <div class="input-group input-group form">  
+                <input type="text" name="pseudo" value="Admin1" class="form-control" required>
+            </div>
+        </div>
+        <!-- End Input --> 
+
+        <!-- Input -->
+        <div class="mb-3">
+            <div class="input-group input-group form">
+                <input type="email" name="email" value="admin1@admin.com" class="form-control" required>
+            </div>
+        </div>
+        <!-- End Input --> 
+
+        <!-- Input -->
+        <div class="mb-3">
+            <div class="input-group input-group form">
+                <input type="password" name="password" value="Admin1" class="form-control" required>
+            </div>
+        </div>
+        <!-- End Input --> 
+        <button type="submit" class="btn btn-block btn-primary">Inscription</button>
+    </form>
+    </div>';
+    return $result;
+}
+
+function displayActionInscription(){
+    global $model;
+    //print_r($_REQUEST); exit();
+    $pseudo = $_REQUEST["pseudo"];
+    $email = $_REQUEST["email"];
+    $password = $_REQUEST["password"];
+
+    $data = $model->createCustomers($pseudo,$email,$password);
+    if($data){//Inscription reussie
+        $data_customer = $model->authentifier($email,$password);
+        if($data_customer){
+            $_SESSION["customer"] = $data_customer;
+            return '<p class="btn btn-block btn-success">Inscription réussie '.$pseudo.', vous êtes bien connecter !<p>'.displayProduit();
+        }
+    }else{// Inscription échouée
+        return '<p class="btn btn-block btn-danger">Desolé, votre inscription à échouée !<p>'.displayProduit();
+    }
+}
+
+function displayDeconnexion(){
+    unset($_SESSION["customer"]);
+    return '<p class="btn btn-block btn-success">Déconnexion réussie, vous êtes bien deconnecter !<p>'.displayProduit();
+}
+
+function displayActionConnexion(){
+    global $model;
+    //print_r($_REQUEST); exit();
+    $email = $_REQUEST["email"];
+    $password = $_REQUEST["password"];
+    $data_customer = $model->authentifier($email,$password);
+    if($data_customer){
+        $_SESSION["customer"] = $data_customer;
+        return '<p class="btn btn-block btn-success">Authentification réussie , vous êtes bien authentifier !<p>'.displayProduit();
+    }
+    else{// Inscription échouée
+        return '<p class="btn btn-block btn-danger">Desolé, votre authentification à échouée !<p>'.displayProduit();
+    }
 }
 
 function displayContact()
 {
-    return "<h1>Bienvenu sur la page de contact</h1>";
+    $result = '<h1>Bienvenu sur la page de contact</h1>';
+    $result .= '
+    <h1 class="text-center">Contactez-nous !</h1>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    ';
+
+
+
+
+    return $result;
 }
 
 function displayProduit()

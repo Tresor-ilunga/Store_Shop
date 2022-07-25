@@ -10,7 +10,11 @@ $route = array(
     "category",
     "details",
     "panier",
-    "supprimer"
+    "supprimer",
+    "actionInscription",
+    "deconnexion",
+    "profil",
+    "actionConnexion"
 );
 
 //print_r($url);
