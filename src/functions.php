@@ -12,7 +12,7 @@ function displayAccueil()
         <!-- Input -->
         <div class="mb-3">
             <div class="input-group input-group form">  
-                <input type="text" name="pseudo" value="Admin1" class="form-control" required>
+                <input type="text" name="pseudo"  class="form-control" placeholder="Entrer votre pseudo" required>
             </div>
         </div>
         <!-- End Input --> 
@@ -20,7 +20,7 @@ function displayAccueil()
         <!-- Input -->
         <div class="mb-3">
             <div class="input-group input-group form">
-                <input type="email" name="email" value="admin1@admin.com" class="form-control" required>
+                <input type="email" name="email"  class="form-control" placeholder="Entrer votre email" required>
             </div>
         </div>
         <!-- End Input --> 
@@ -28,7 +28,7 @@ function displayAccueil()
         <!-- Input -->
         <div class="mb-3">
             <div class="input-group input-group form">
-                <input type="password" name="password" value="Admin1" class="form-control" required>
+                <input type="password" name="password"  class="form-control" placeholder="Entrer votre mot de passe" required>
             </div>
         </div>
         <!-- End Input --> 
@@ -82,14 +82,25 @@ function displayContact()
     $result = '<h1>Bienvenu sur la page de contact</h1>';
     $result .= '
     <h1 class="text-center">Contactez-nous !</h1>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
+    <form>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nom: </label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Entrer votre nom">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Prenom: </label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Entrer votre prenom">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email: </label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-block btn-primary">Envoyer</button>
+    </fom>
     ';
 
 
